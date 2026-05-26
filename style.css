@@ -33,30 +33,22 @@ body {
     background: #ffffff;
     display: flex;
     align-items: center;
-    color: #000000;
+    color: #333;
     text-align: center;
     padding: 40px;
-    z-index: 2;
+    z-index: 1;
     transition: .6s ease-in-out;
 }
 
-.form-box.login {
-    right: 0;
-}
-
-.form-box.register {
-    right: -50%;
-    visibility: visible;
-}
-
-.container.active .form-box.login {
+.container.active .form-box {
     right: 50%;
 }
 
-.container.active .form-box.register {
-    right: 0;
-}
 
+.form-box.register {
+    visibility: hidden;
+
+}
 form {
     width: 100%;
 }
@@ -64,7 +56,6 @@ form {
 .container h1 {
     font-size: 36px;
     margin: -10px 0;
-    color: #000000;
 }
 
 .input-box {
@@ -100,13 +91,13 @@ form {
 
 .forgot-link {
     margin: -15px 0 15px;
-    text-align: right;
+    
 }
 
 .forgot-link a {
+    font-size: 14.5px;
     color: #333;
     text-decoration: none;
-    font-size: 14.5px;
 }
 
 .btn {
@@ -120,32 +111,29 @@ form {
     font-size: 16px;
     color: #fff;
     font-weight: 600;
-    transition: .3s;
 }
 
 .btn:hover {
     background: #5a7ad4;
 }
 
+
+/* Não tem conta? */
 .container p {
     margin: 15px 0;
     font-size: 14.5px;
-    color: #000000;
+    color: #ffffff;
 }
 
 .social-icons a {
     display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 45px;
-    height: 45px;
+    padding: 10px;
     border: 2px solid #ccc;
     border-radius: 8px;
     font-size: 24px;
     color: #333;
     text-decoration: none;
-    margin: 0 8px;
-    transition: .3s;
+    margin: 0 10px;
 }
 
 .social-icons a:hover {
@@ -158,45 +146,85 @@ form {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: #375a88;
-    z-index: 1;
 }
 
+.toggle-box::before {
+    content: '';
+    position: absolute;
+    left: -250%;
+    width: 300%;
+    height: 100%;
+    background: #7494ec;
+    border: 2px solid #7494ec;
+    border-radius: 150px;
+    z-index: 2;
+    transition: 1.8s ease-in-out;
+    
+}
+.container.active .toggle-box::before {
+    left: -50%;
+}
 
+.toggle-panel {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    transition: .6s ease-in-out;
+}
+.toggle-panel.toggle-left {
+    left: 0;
+}
 
+.container.active .toggle-panel.toggle-left {
+    left: -50%;
+    transition-delay: .6s;
+}
 
+.toggle-panel p {
+    margin-bottom: 20px;
+}
 
-
+.toggle-panel .btn {
+    width: 160px;
+    height: 46px;
+    background: transparent;
+    border: 2px solid #fff;
+    box-shadow: none;
+}
 
 
 .toggle-panel {
     position: absolute;
     width: 50%;
     height: 100%;
-    background: #375a88;
     color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: .6s ease-in-out;
+    z-index: 2;
+    transition: .4s ease-in-out;
 }
 
-.toggle-left {
-    left: 0;
-}
-
-.toggle-right {
+.toggle-panel.toggle-right {
     right: -50%;
+    transition-delay: 6s;
 }
 
-.container.active .toggle-left {
-    left: -50%;
-}
-
-.container.active .toggle-right {
+.container.active .toggle-panel.toggle-right {
     right: 0;
+    transition-delay: 1.2s;
 }
+
+
+
+
 
 .toggle-panel h1 {
     color: #fff;
@@ -204,14 +232,15 @@ form {
 }
 
 .toggle-panel p {
-    color: #fff;
     margin-bottom: 20px;
 }
 
 .toggle-panel .btn {
+    width: 160px;
+    height: 46px;
     background: transparent;
     border: 2px solid #fff;
-    width: 60%;
+    box-shadow: none;
     margin-top: 10px;
 }
 
@@ -231,3 +260,4 @@ form {
     border: 2px solid #fff;
     box-shadow: none;
 }
+
