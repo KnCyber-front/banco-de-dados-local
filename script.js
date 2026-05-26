@@ -2,10 +2,12 @@ const container = document.querySelector('.container');
 const registerBtn = document.querySelector('.register-btn');
 const loginBtn = document.querySelector('.login-btn');
 
-registerBtn.addEventListener('click', () => {  
+// Quando clicar em "Registrar" no painel esquerdo
+registerBtn.addEventListener('click', () => {
     container.classList.add('active');
 });
 
-loginBtn.addEventListener('click', () => {  
+// Quando clicar em "Login" no painel direito
+loginBtn.addEventListener('click', () => {
     container.classList.remove('active');
 });
